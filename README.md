@@ -5,6 +5,7 @@
 2. You will need to add the following lines to .bash_profile file:
 
    ​	`export EMAIL_USER="cyberawarenesstrivia@gmail.com"`
+
    ​	`export EMAIL_PASSWORD="sSSssabDKK3Z42sB"`
 
    **Warning: These are real credentials, <u>DO NOT</u> share with anyone.**
