@@ -14,6 +14,5 @@ def send_reset_email(user):
 {url_for('users.reset_token', token=token, _external=True)}
 
 Cyber Awareness Trivia
-CyberAwarenessTrivia@gmail.com
 '''
     mail.send(msg)

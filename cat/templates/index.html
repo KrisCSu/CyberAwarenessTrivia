@@ -9,8 +9,8 @@
           {% for result in results %}
             <tr>
               <td>{{ result.user_id }}</td>
-              <td>{{ result.percentage }}</td>
-              <td>{{ result.date }}</td>
+              <td>{{ "{:.2%}".format(result.percentage) }}</td>
+              <td>{{ result.date.strftime('%Y/%m/%d, %H:%M:%S') }}</td>
             </tr>
           {% endfor %}
 </table>
