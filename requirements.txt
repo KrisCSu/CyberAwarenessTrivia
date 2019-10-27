@@ -3,4 +3,4 @@ Flask-Bcrypt==0.7.1
 Flask-Login==0.4.1
 Flask-SQLAlchemy==2.4.1
 Flask-WTF==0.14.2
-Flask_Mail==0.9.1
+Flask-Mail==0.9.1

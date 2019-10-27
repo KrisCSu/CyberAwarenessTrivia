@@ -1,20 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Good Luck Have Fun</h1><br>
+<legend>Good Luck Have Fun</legend>
 <form action="{{ url_for('triviaa.trivia_answers') }}" method='POST'>
-    <ol>
-         {% for trivia in trivia_questions %}
-            <li> {{ trivia.question }} </li>
-            <input type="radio" name="{{ trivia.id }}" value="{{ trivia.correct_answer }}">{{ trivia.correct_answer }}<br>
-            <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer }}">{{ trivia.incorrect_answer }}<br>
-            {% if trivia.incorrect_answer2 == None %}
-                <!-- continue -->
-            {% else %}
-                <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer2 }}">{{ trivia.incorrect_answer2 }}<br>
-                <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer3 }}">{{ trivia.incorrect_answer3 }}<br>
-            {% endif %}
-         {% endfor %}
-    </ol>
-    <input type='submit' value='Submit' />
+  <ol>
+    {% for trivia in trivia_questions %}
+      <li> {{ trivia.question }} </li>
+      <div class="custom-control custom-radio">
+        <input type="radio" name="{{ trivia.id }}" value="{{ trivia.correct_answer }}" class="custom-control-input">{{ trivia.correct_answer }}<br>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer }}" class="custom-control-input">{{ trivia.incorrect_answer }}<br>
+      </div>
+      {% if trivia.incorrect_answer2 == None %}
+          <!-- continue -->
+      {% else %}
+          <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer2 }}" class="custom-control-input">{{ trivia.incorrect_answer2 }}<br>
+          <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer3 }}" class="custom-control-input">{{ trivia.incorrect_answer3 }}<br>
+      {% endif %}
+    {% endfor %}
+  </ol>
+  <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit" />
 </form>
 {% endblock content %}
