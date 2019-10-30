@@ -53,4 +53,4 @@ class Trivia(db.Model):
 	incorrect_answer3 = db.Column(db.String, nullable=True)
 
 	def __repr__(self):
-		return f"Trivia('{self.question}','{self.correct_answer}', '{self.inccorrect_answer}', '{self.inccorrect_answer2}', '{self.inccorrect_answer3}')"
+		return f"Trivia('{self.question}','{self.correct_answer}', '{self.incorrect_answer}', '{self.incorrect_answer2}', '{self.incorrect_answer3}')"

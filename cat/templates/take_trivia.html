@@ -4,19 +4,14 @@
 <form action="{{ url_for('triviaa.trivia_answers') }}" method='POST'>
   <ol>
     {% for trivia in trivia_questions %}
-      <li> {{ trivia.question }} </li>
-      <div class="custom-control custom-radio">
-        <input type="radio" name="{{ trivia.id }}" value="{{ trivia.correct_answer }}" class="custom-control-input">{{ trivia.correct_answer }}<br>
-      </div>
-      <div class="custom-control custom-radio">
-        <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer }}" class="custom-control-input">{{ trivia.incorrect_answer }}<br>
-      </div>
-      {% if trivia.incorrect_answer2 == None %}
+      <li> {{ trivia }}</li>
+      {% for answers in trivia_questions[trivia] %}
+        {% if answers == None %}
           <!-- continue -->
-      {% else %}
-          <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer2 }}" class="custom-control-input">{{ trivia.incorrect_answer2 }}<br>
-          <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer3 }}" class="custom-control-input">{{ trivia.incorrect_answer3 }}<br>
-      {% endif %}
+        {% else %}
+          <input type='radio' value='{{answers}}' name='{{trivia}}' />{{answers}}<br>
+        {% endif %}
+      {% endfor %}
     {% endfor %}
   </ol>
   <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit" />

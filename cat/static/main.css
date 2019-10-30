@@ -189,6 +189,7 @@ table {
 }
 td,
 th {
+  text-align: center;
   padding: 0;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -2268,7 +2269,7 @@ caption {
   text-align: left;
 }
 th {
-  text-align: left;
+  text-align: center;
 }
 .table {
   width: 100%;
@@ -3095,27 +3096,27 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #4582ec;
-  border-color: #4582ec;
+  background-color: #D68717;
+  border-color: #D68717;
 }
 .btn-primary:focus,
 .btn-primary.focus {
   color: #ffffff;
-  background-color: #1863e6;
-  border-color: #1045a1;
+  background-color: #D68717;
+  border-color: #D68717;
 }
 .btn-primary:hover {
   color: #ffffff;
-  background-color: #1863e6;
-  border-color: #175fdd;
+  background-color: #D68717;
+  border-color: #D68717;
 }
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #1863e6;
+  background-color: #D68717;
   background-image: none;
-  border-color: #175fdd;
+  border-color: #D68717;
 }
 .btn-primary:active:hover,
 .btn-primary.active:hover,
@@ -3127,8 +3128,8 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary.active.focus,
 .open > .dropdown-toggle.btn-primary.focus {
   color: #ffffff;
-  background-color: #1455c6;
-  border-color: #1045a1;
+  background-color: #D68717;
+  border-color: #D68717;
 }
 .btn-primary.disabled:hover,
 .btn-primary[disabled]:hover,
@@ -3413,7 +3414,7 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-block {
   display: block;
-  width: 100%;
+  width: 50%;
 }
 .btn-block + .btn-block {
   margin-top: 5px;
@@ -3421,7 +3422,8 @@ fieldset[disabled] .btn-link:focus {
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
-  width: 100%;
+  width: 50%;
+  margin-bottom: 30px;
 }
 .fade {
   opacity: 0;

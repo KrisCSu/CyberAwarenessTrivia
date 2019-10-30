@@ -1,20 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Correct Answers: <u>{{correct}}</u></h1>
-<ol>
-    {% for trivia in original %}
-        <li> {{ trivia.question }} </li>
-            <input type="radio" name="{{ trivia.id }}" value="{{ trivia.correct_answer }}" checked> <label style="color:green">{{ trivia.correct_answer }}</label><br>
-            <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer }}" disabled>{{ trivia.incorrect_answer }}<br>
-            {% if trivia.incorrect_answer2 == None %}
-                <!-- continue -->
-            {% else %}
-                <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer2 }}">{{ trivia.incorrect_answer2 }}<br>
-                <input type="radio" name="{{ trivia.id }}" value="{{ trivia.incorrect_answer3 }}">{{ trivia.incorrect_answer3 }}<br>
-            {% endif %}
+<h1>Correct Answers: <u>{{accuracy}}</u></h1>
+<form>
+  <ol>
+  {% for trivia in original %}
+    <li> {{ trivia }} </li>
+    {% for answers in original[trivia] %}
+      {% if answers == None %}
+        <!-- continue -->
+      {% else %}
+        {% if answers == answered[trivia] == correct[trivia] %}
+          <input type='radio' value='{{answers}}' name='{{trivia}}' checked/><label style="color:green">{{answers}}</label><br>
+        {% elif answers == correct[trivia] %}
+          <input type='radio' value='{{answers}}' name='{{trivia}}'disabled/><label style="color:green">{{answers}}</label><br>
+        {% elif answers == answered[trivia] != correct[trivia]%}
+          <input type='radio' value='{{answers}}' name='{{trivia}}' checked/><label style="color:red">{{answers}}</label><br>
+        {% else %}
+          <input type='radio' value='{{answers}}' name='{{trivia}}' disabled/>{{answers}}<br>
+        {% endif %}
+      {% endif %}
     {% endfor %}
-</ol>
-
+  {% endfor %}
+  </ol>
+</form>
 <form action="{{ url_for('triviaa.take_trivia') }}">
     <input type='submit' value='Another Trivia' />
 </form>
