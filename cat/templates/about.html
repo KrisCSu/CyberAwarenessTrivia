@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
     <body>
-        <p>Cyber Awareness Trivia (CAT) is a web application designed for participants to explore the realm of cybersecurity. It serves as an educational platform that specifically focuses on trivia questions related to information scurity. From those who have never heard the term "info sec" to those who call themselves CISO, everyone can sign up and take the challenges to test their skills.
-        The mission is to bring awareness to how engaging in unsafe activities on the internet can open up a web of weaknessed that a cyber criminal will take no time in exploiting. To help understand why it is important to keep internet safety in mind when browsing the web, we have pooled together some questions that people of all knowledge-levels can take! </p><br>
+    	<div class="jumbotron">
+	        <p>Cyber Awareness Trivia (CAT) is a web application designed for participants to explore the realm of cybersecurity. It serves as an educational platform that specifically focuses on trivia questions related to information scurity. From those who have never heard the term "info sec" to those who call themselves CISO, everyone can sign up and take the challenges to test their skills.
+	        	
+	        The mission is to bring awareness to how engaging in unsafe activities on the internet can open up a web of weaknessed that a cyber criminal will take no time in exploiting. To help understand why it is important to keep internet safety in mind when browsing the web, we have pooled together some questions that people of all knowledge-levels can take! </p>
+    </div><br>
         
         <h4>You clicked on a bad link and now you're a target. How do you protect yourself? <a href= "{{ url_for('users.register') }}">Are you up for the challenge?</a> </h4>
     </body>

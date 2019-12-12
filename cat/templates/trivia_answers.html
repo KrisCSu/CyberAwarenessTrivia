@@ -4,7 +4,7 @@
 <form>
   <ol>
   {% for trivia in original %}
-    <li> {{ trivia }} </li>
+    <h3><li> {{ trivia }} </li></h3>
     {% for answers in original[trivia] %}
       {% if answers == None %}
         <!-- continue -->
@@ -24,6 +24,6 @@
   </ol>
 </form>
 <form action="{{ url_for('triviaa.take_trivia') }}">
-    <input type='submit' value='Another Trivia' />
+    <center><input type='submit' class="btn btn-primary btn-lg btn-block" value='Another Trivia' /></center>
 </form>
 {% endblock content %}

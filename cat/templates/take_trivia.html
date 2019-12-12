@@ -4,16 +4,19 @@
 <form action="{{ url_for('triviaa.trivia_answers') }}" method='POST'>
   <ol>
     {% for trivia in trivia_questions %}
-      <li> {{ trivia }}</li>
+      <h3><li> {{ trivia }} </li></h3>
       {% for answers in trivia_questions[trivia] %}
         {% if answers == None %}
           <!-- continue -->
         {% else %}
-          <input type='radio' value='{{answers}}' name='{{trivia}}' />{{answers}}<br>
+          <div>
+            <input type='radio' value='{{answers}}' name='{{trivia}}'/>
+            <label> {{answers}} </label>
+          </div>
         {% endif %}
       {% endfor %}
     {% endfor %}
   </ol>
-  <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit" />
+  <center><input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit" /></center>
 </form>
 {% endblock content %}
