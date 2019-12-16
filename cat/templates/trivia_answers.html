@@ -21,9 +21,9 @@
       {% endif %}
     {% endfor %}
   {% endfor %}
-  </ol>
+  </ol><br>
 </form>
 <form action="{{ url_for('triviaa.take_trivia') }}">
-    <center><input type='submit' class="btn btn-primary btn-lg btn-block" value='Another Trivia' /></center>
+    <center><input type='submit' class="btn btn-primary btn-block" style = "width: 150px;"value='Another Trivia' /></center>
 </form>
 {% endblock content %}

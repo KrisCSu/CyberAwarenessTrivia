@@ -1,26 +1,69 @@
 {% extends "layout.html" %}
 {% block content %}
+<html>
+
     <body style= "font-family: 'Raleway', serif;">
-    	<div style= "background-color: rgb(226, 128, 48); background-size: contain; color: white; opacity: 0.9;" class="jumbotron">
+    	<div style= "background-color: #D68717; background-size: contain; color: white; opacity: 0.9;" class="jumbotron">
 	        <p>Cyber Awareness Trivia (CAT) is a web application designed for users to explore the realm of cybersecurity. It serves as an educational platform for anyone who is interested regardless of expertise (or knowledge). The mission is to bring awareness about internet safety and to provide an opportunity for users to challenge their skills with various trivia questions.</p>
-    </div><br>
-        
-        <h4>You clicked on a bad link and now you're a target. How do you protect yourself? <a href= "{{ url_for('users.register') }}">Are you up for the challenge?</a> </h4>
-<hr>
+    </div><br>   
+    <h4>You clicked on a bad link and now you're a target. How do you protect yourself? <a href= "{{ url_for('users.register') }}">Are you up for the challenge?</a> </h4>
+    <hr>
+    <h3> Check out a sample of the trivia challenges:</h3></div>
     <div>
-        <div class="row"><h3> Check out a sample of the trivia challenges:</h3></div>
-        <div class="row">
-            <div class="jumbotron">
-                <div class="row"><h4>How often should you change your password?</h4></div>
-                <div class="row"><p>
-                    <div style="padding-bottom: 10px;"><input type='radio' value='Every month' name='sample'/><label> Every month </label></div>
-                    <div style="padding-bottom: 10px;"><input type='radio' value='Every 6 months' name='sample' id='correct'/><label> Every 6 months </label></div>
-                    <div style="padding-bottom: 10px;"><input type='radio' value='Never' name='sample'/><label> Never </label></div>
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" style="width: 150px;" onclick = "submit()" value="Submit" />
+        <h4>Q: How often should you change you password?</h4>
+        <!-- Modal -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          3 months
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+          1 year
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+          Never
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Good Job!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                You are right! But why not join today to learn more.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onClick="location.href='{{ url_for('users.register')}}'">Join Today!</button>
+              </div>
             </div>
+          </div>
         </div>
 
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Opps!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Opps! It seems you need to learn some cyber knowledge.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onClick="location.href='{{ url_for('users.register')}}'">Join Today!</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-    </body>
+
+</html>
 {% endblock content %}

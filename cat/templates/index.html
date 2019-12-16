@@ -15,8 +15,84 @@
           {% endfor %}
 </table>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="chart_div"></div>
-      
+<html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+{% block body %}
+<body>
+  <canvas id = "scoreboard" width = "1000" height = "500"></canvas>
+  <script>
+    var scoreData = 
+    {
+      labels : 
+      [
+        {% for result in results %}
+          "{{result.date.strftime('%Y/%m/%d, %H:%M:%S')}}",
+        {% endfor %}
+      ],
+    
+      datasets : [
+        {
+          fillColor: "lightblue",
+          pointColor: "orange",
+          data : 
+          [
+            {% for result in results %}
+              "{{result.percentage}}",
+            {% endfor %}
+          ]
+        }
+      ]
+    }
+        Chart.defaults.global.animationSteps = 50;
+        Chart.defaults.global.tooltipYPadding = 16;
+        Chart.defaults.global.tooltipCornerRadius = 0;
+        Chart.defaults.global.tooltipTitleFontStyle = "normal";
+        Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.7)";
+        Chart.defaults.global.animationEasing = "easeOutBounce";
+        Chart.defaults.global.responsive = true;
+        Chart.defaults.global.scaleLineColor = "black";
+        Chart.defaults.global.scaleFontSize = 16;
+    var mychart = document.getElementById("scoreboard").getContext("2d")
+    var CAT_scoreboard = new Chart(mychart).Line(scoreData,
+    {
+              scaleOverride: false,
+              scaleSteps: 10,
+              scaleStepWidth: 10,
+              scaleStartValue: 0,
+              scaleShowVerticalLines: true,
+              scaleShowGridLines : true,
+              barShowStroke : true,
+              scaleShowLabels: true,
+              bezierCurve: false,
 
+              options:{
+                scales:{
+                  yAxes:[{
+                    ticks: {
+                      max:1
+                    }
+                  }]
+                }
+              }
+
+    });
+
+    CAT_scoreboard.options.scales = {
+    xAxes: [],
+    yAxes: [
+      {
+        ticks: {
+          min: 0,
+          max: 1,
+          beginAtZero: true,
+          stepSize: .25
+        }
+      }
+    ]
+  };
+  myChart.update();
+  </script>
+</body>
+{% endblock body%}
+</html>      
 {% endblock content %}
